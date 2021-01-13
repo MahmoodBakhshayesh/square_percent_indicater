@@ -57,9 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
           progress: value / 100,
           child: Center(
               child: Text(
-                "$value %",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              )),
+            "$value %",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          )),
         ),
       ),
     );

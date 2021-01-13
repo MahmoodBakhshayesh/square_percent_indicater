@@ -61,9 +61,9 @@ class Matrix4Transform {
   /// Rotates by [angleRadians] radians, clockwise.
   /// The axis of rotation will be the center of the object with the given size.
   Matrix4Transform rotateByCenter(double angleRadians, Size size) => rotate(
-    angleRadians,
-    origin: Offset(size.width / 2, size.height / 2),
-  );
+        angleRadians,
+        origin: Offset(size.width / 2, size.height / 2),
+      );
 
   /// Translates by [x] pixels (horizontal) and [y] pixels (vertical).
   /// Positive goes down/right.
@@ -173,9 +173,9 @@ class Matrix4Transform {
   /// Translates by [distance] pixels to the [direction].
   /// The direction is in degrees (0 to 360 one turn) clockwise from the positive x-axis.
   Matrix4Transform directionDegrees(
-      double directionDegrees,
-      double distance,
-      ) =>
+    double directionDegrees,
+    double distance,
+  ) =>
       translateOffset(
         Offset.fromDirection(
           _toRadians(directionDegrees),
@@ -185,28 +185,28 @@ class Matrix4Transform {
 
   /// Translates up and right by [distance] pixels of distance.
   Matrix4Transform upRight(double distance) => //
-  direction(-pi / 4, distance);
+      direction(-pi / 4, distance);
 
   /// Translates up and left [distance] pixels.
   Matrix4Transform upLeft(double distance) => //
-  direction(-pi * 3 / 4, distance);
+      direction(-pi * 3 / 4, distance);
 
   /// Translates down and right by [distance] pixels.
   Matrix4Transform downRight(double distance) => //
-  direction(pi / 4, distance);
+      direction(pi / 4, distance);
 
   /// Translates down and left by [distance] pixels.
   Matrix4Transform downLeft(double distance) => //
-  direction(pi * 3 / 4, distance);
+      direction(pi * 3 / 4, distance);
 
   Matrix4Transform flipDiagonally({Offset origin}) => //
-  _flipDegrees(horizontal: 180, vertical: 180, origin: origin);
+      _flipDegrees(horizontal: 180, vertical: 180, origin: origin);
 
   Matrix4Transform flipHorizontally({Offset origin}) => //
-  _flipDegrees(horizontal: 180, origin: origin);
+      _flipDegrees(horizontal: 180, origin: origin);
 
   Matrix4Transform flipVertically({Offset origin}) => //
-  _flipDegrees(vertical: 180, origin: origin);
+      _flipDegrees(vertical: 180, origin: origin);
 
   Matrix4Transform _flip({
     double horizontal = 0.0,

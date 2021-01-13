@@ -110,15 +110,36 @@ class RadialPainter extends CustomPainter {
     path.moveTo(borderRadius, 0);
     path.lineTo(size.width - borderRadius, 0);
     path.arcTo(
-        Rect.fromCircle(center: Offset(size.width - borderRadius, borderRadius), radius: borderRadius), -pi / 2, pi / 2, false);
+        Rect.fromCircle(
+            center: Offset(size.width - borderRadius, borderRadius),
+            radius: borderRadius),
+        -pi / 2,
+        pi / 2,
+        false);
     path.lineTo(size.width, size.height - borderRadius);
-    path.arcTo(Rect.fromCircle(center: Offset(size.width - borderRadius, size.height - borderRadius), radius: borderRadius), 0,
-        pi / 2, false);
+    path.arcTo(
+        Rect.fromCircle(
+            center:
+                Offset(size.width - borderRadius, size.height - borderRadius),
+            radius: borderRadius),
+        0,
+        pi / 2,
+        false);
     path.lineTo(0 + borderRadius, size.height);
     path.arcTo(
-        Rect.fromCircle(center: Offset(borderRadius, size.height - borderRadius), radius: borderRadius), pi / 2, pi / 2, false);
+        Rect.fromCircle(
+            center: Offset(borderRadius, size.height - borderRadius),
+            radius: borderRadius),
+        pi / 2,
+        pi / 2,
+        false);
     path.lineTo(0, borderRadius);
-    path.arcTo(Rect.fromCircle(center: Offset(borderRadius, borderRadius), radius: borderRadius), pi, pi / 2, false);
+    path.arcTo(
+        Rect.fromCircle(
+            center: Offset(borderRadius, borderRadius), radius: borderRadius),
+        pi,
+        pi / 2,
+        false);
 
     for (PathMetric pathMetric in path.computeMetrics()) {
       dashPath.addPath(
@@ -133,7 +154,8 @@ class RadialPainter extends CustomPainter {
           .transform(Matrix4Transform().flipHorizontally().m.storage);
     }
 
-    dashPath = dashPath.transform(Matrix4Transform().rotateByCenter(startAngle.value, size).m.storage);
+    dashPath = dashPath.transform(
+        Matrix4Transform().rotateByCenter(startAngle.value, size).m.storage);
 
     canvas.drawPath(path, shadowPaint);
     canvas.drawPath(dashPath, paint);
